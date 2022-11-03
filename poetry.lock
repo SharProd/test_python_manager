@@ -39,6 +39,17 @@ django = ">=3.0"
 pytz = "*"
 
 [[package]]
+name = "python-dotenv"
+version = "0.21.0"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
 name = "pytz"
 version = "2022.6"
 description = "World timezone definitions, modern and historical"
@@ -65,7 +76,7 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "d9ae2cd08654fae3b308b3f5c35be90087b1290b51d0c9aaeb5f80dbe40541e5"
+content-hash = "2a59f16acf63211cfb3a12ab67cad19ea8443e13b664a9361edf31d966ac285a"
 
 [metadata.files]
 asgiref = [
@@ -74,6 +85,7 @@ asgiref = [
 ]
 django = []
 djangorestframework = []
+python-dotenv = []
 pytz = []
 sqlparse = []
 tzdata = []
