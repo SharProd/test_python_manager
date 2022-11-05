@@ -3,17 +3,17 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-
-from manager.mixins import DateTimeMixinModel
 from .managers import CustomUserManager
 
 __all__ = {"User"}
 
 
-class User(AbstractBaseUser, PermissionsMixin, DateTimeMixinModel):
+class User(AbstractBaseUser,PermissionsMixin):
     first_name = models.CharField(_("first name"), max_length=150, blank=True)
     last_name = models.CharField(_("last name"), max_length=150, blank=True)
     email = models.EmailField(_("email address"), unique=True)
+    date_created = models.DateTimeField(_("date created"),auto_now_add=True, blank=True, null=True)
+    date_update = models.DateTimeField(_("date update"),auto_now=True, blank=True, null=True)
     is_staff = models.BooleanField(
         _("staff status"),
         default=False,
