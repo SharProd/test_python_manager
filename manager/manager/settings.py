@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     *['rest_framework',
     'rest_framework_simplejwt',],
     *['auth_user',
+      'account_journal',
       ]
 ]
 
