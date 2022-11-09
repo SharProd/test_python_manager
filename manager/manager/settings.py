@@ -1,13 +1,17 @@
+import os
 from datetime import timedelta
 from pathlib import Path
+import  dotenv
+
+dotenv.load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-0(65+1dvg=pphg0m^3fd$ue_ocrug=ty=!nkl_h3h(r^ch+k0v'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = True
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS"), "localhost"]
 
 AUTH_USER_MODEL = "auth_user.User"
 
@@ -60,9 +64,13 @@ WSGI_APPLICATION = 'manager.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": os.environ.get("NAME"),
+        "USER": os.environ.get("USER"),
+        "PASSWORD": os.environ.get("PASSWORD"),
+        "HOST": os.environ.get("HOST"),
+        "PORT": os.environ.get("PORT"),
     }
 }
 
