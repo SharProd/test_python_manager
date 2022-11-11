@@ -3,9 +3,9 @@ from .models import IncomeNote,ExpenseNote,Category
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('id','title')
-    list_filter = ('id','title')
-    list_display_links = ('id','title')
+    list_display = ('id','title','user')
+    list_filter = ('id','title','user')
+    list_display_links = ('id','title','user')
 
 class IncomeAdmin(admin.ModelAdmin):
     list_display = ('id', 'money', 'organization', 'date_created')
