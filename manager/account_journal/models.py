@@ -5,7 +5,7 @@ from auth_user.models import User
 
 class Category(models.Model):
     title = models.CharField(max_length=50,verbose_name='payment category')
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
 
     def __str__(self):
         return f'{self.title}'

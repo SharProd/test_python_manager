@@ -1,10 +1,12 @@
-from rest_framework import serializers
+from rest_framework import serializers, request
 from .models import IncomeNote,ExpenseNote,Category
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = '__all__'
+
+
 
 
 class ExpenseSerializer(serializers.ModelSerializer):
