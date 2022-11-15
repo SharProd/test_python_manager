@@ -12,7 +12,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class ExpenseSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExpenseNote
-        fields = ('id','money','category','date_created','organization','discription')
+        fields = '__all__'
         extra_fields = {}
 
 

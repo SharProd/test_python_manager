@@ -8,15 +8,15 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display_links = ('id','title','user')
 
 class IncomeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'money', 'organization', 'date_created')
-    list_filter = ('id', 'money', 'date_created')
-    list_display_links = ('id', 'money', 'date_created')
+    list_display = ('id','user','category', 'money', 'organization', 'date_created')
+    list_filter = ('id','user','category', 'money', 'date_created')
+    list_display_links = ('id','user', 'money', 'date_created')
 
 
 class ExpenseAdmin(admin.ModelAdmin):
-    list_display = ('id', 'money', 'organization', 'date_created')
-    list_filter = ('id', 'money', 'date_created')
-    list_display_links = ('id', 'money', 'date_created')
+    list_display = ('id','user','category', 'money', 'organization', 'date_created')
+    list_filter = ('id','user','category', 'money', 'date_created')
+    list_display_links = ('id','user', 'money', 'date_created')
 
 
 admin.site.register(IncomeNote, IncomeAdmin)
