@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AnonymousUser
 from django.db.models import Sum
 from rest_framework import response, permissions, viewsets, views
+from manager.mixins import CustomPagination
+from auth_user.models import User
 
 from .models import Category, ExpenseNote, IncomeNote
 from .serializers import CategorySerializer, ExpenseSerializer, IncomeSerializer
@@ -11,6 +13,7 @@ class CategoryModelViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = [permissions.IsAuthenticated]
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         user = self.request.user
@@ -27,6 +30,7 @@ class IncomeModelViewSet(viewsets.ModelViewSet):
     queryset = IncomeNote.objects.all()
     serializer_class = IncomeSerializer
     permission_classes = [permissions.IsAuthenticated]
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         user = self.request.user
@@ -48,6 +52,7 @@ class ExpenseModelViewSet(viewsets.ModelViewSet):
     queryset = ExpenseNote.objects.all()
     serializer_class = ExpenseSerializer
     permission_classes = [permissions.IsAuthenticated]
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         user = self.request.user
@@ -65,7 +70,7 @@ class ExpenseModelViewSet(viewsets.ModelViewSet):
             serializer.save(user=self.request.user)
 
 
-class UserProfilApiView(views.APIView):
+class UserProfileApiView(views.APIView):
     def get(self,request):
         user = self.request.user
         data = dict()
