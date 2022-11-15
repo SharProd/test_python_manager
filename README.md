@@ -21,7 +21,7 @@ API in project:
 
 To configure the database, you need to log into the "manager_db" container with the command:
 
-$ docker exec is [image id] bash
+$ docker exec -it [image id] bash
 
 After logging in to the container console, the command to log in to the postgres console:
 
