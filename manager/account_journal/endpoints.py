@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AnonymousUser
-from rest_framework import permissions, viewsets
+from django.db.models import Sum
+from rest_framework import response, permissions, viewsets, views
 
 from .models import Category, ExpenseNote, IncomeNote
 from .serializers import CategorySerializer, ExpenseSerializer, IncomeSerializer
@@ -62,3 +63,12 @@ class ExpenseModelViewSet(viewsets.ModelViewSet):
         request_category = self.request.data["category"]
         if int(request_category) in id_category_list:
             serializer.save(user=self.request.user)
+
+
+class UserProfilApiView(views.APIView):
+    def get(self,request):
+        user = self.request.user
+        data = dict()
+        data['expenses'] = ExpenseNote.objects.filter(user_id=user).aggregate(Sum('money'))
+        data['incomes'] = IncomeNote.objects.filter(user_id=user).aggregate(Sum('money'))
+        return  response.Response(data)
