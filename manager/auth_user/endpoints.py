@@ -1,7 +1,8 @@
-from requests import Response
-from rest_framework import viewsets,permissions,generics
+from rest_framework import generics, permissions, viewsets
+
 from .models import User
-from .serializers import UserSerializer,RegistrationSerializer
+from .serializers import RegistrationSerializer, UserSerializer
+
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
