@@ -7,19 +7,18 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=50, verbose_name='payment category')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("title", models.CharField(max_length=50, verbose_name="payment category")),
             ],
             options={
-                'verbose_name': 'payment category',
-                'verbose_name_plural': 'payment categories',
+                "verbose_name": "payment category",
+                "verbose_name_plural": "payment categories",
             },
         ),
     ]

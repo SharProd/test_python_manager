@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('auth_user', '0001_initial'),
+        ("auth_user", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='date_created',
-            field=models.DateTimeField(auto_now_add=True, null=True, verbose_name='date created'),
+            model_name="user",
+            name="date_created",
+            field=models.DateTimeField(auto_now_add=True, null=True, verbose_name="date created"),
         ),
         migrations.AddField(
-            model_name='user',
-            name='date_update',
-            field=models.DateTimeField(auto_now=True, null=True, verbose_name='date update'),
+            model_name="user",
+            name="date_update",
+            field=models.DateTimeField(auto_now=True, null=True, verbose_name="date update"),
         ),
     ]
