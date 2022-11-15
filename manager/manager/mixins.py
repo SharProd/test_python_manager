@@ -1,5 +1,9 @@
 from django.db import models
+from django.core import validators
 from django.utils.translation import gettext_lazy as _
+
+from auth_user.models import User
+
 
 class DateTimeMixinModel():
     date_created = models.DateTimeField(_("date created"),auto_now_add=True, blank=True, null=True)
@@ -7,3 +11,18 @@ class DateTimeMixinModel():
 
     class Meta:
         abstract = True
+
+
+class NoteMixin(models.Model):
+    money = models.FloatField(verbose_name='money',validators=[validators.MinValueValidator(0.1),])
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    date_created = models.DateTimeField(verbose_name='date created')
+    # category =
+    organization = models.CharField(max_length=80,verbose_name='organization')
+    discription = models.TextField(max_length=500,verbose_name='description for payment')
+
+    def __str__(self):
+        return f'{self.money},{self.organization},{self.date_created}'
+
+    class Meta:
+        abstract=True

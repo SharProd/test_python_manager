@@ -60,6 +60,14 @@ python-jose = ["python-jose (==3.3.0)"]
 test = ["cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox"]
 
 [[package]]
+name = "psycopg2-binary"
+version = "2.9.5"
+description = "psycopg2 - Python-PostgreSQL Database Adapter"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "pyjwt"
 version = "2.6.0"
 description = "JSON Web Token implementation in Python"
@@ -111,7 +119,7 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "91b2c3040fad205ac3cec150acfe25eb7b5daa34cffdd2857fa26a15ce38e56a"
+content-hash = "b3a93775de684d0b8d0f01b5a6169c9f7479228c5daf2a08ddefcfa4c87f929b"
 
 [metadata.files]
 asgiref = [
@@ -121,6 +129,7 @@ asgiref = [
 django = []
 djangorestframework = []
 djangorestframework-simplejwt = []
+psycopg2-binary = []
 pyjwt = []
 python-dotenv = []
 pytz = []
