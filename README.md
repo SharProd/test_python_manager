@@ -19,24 +19,24 @@ API in project:
     
 
 
-Для настройки базы данных необходимо войти в контейнер "manager_db" командой:
+To configure the database, you need to log into the "manager_db" container with the command:
 
-$ docker exec -it [id image] bash
+$ docker exec is [image id] bash
 
-После входа в консоль контейнера команда для входа в консоль постгрес:
+After logging in to the container console, the command to log in to the postgres console:
 
 $ psql -U postgres -d postgres
 
-Создать базу данных:
+Create a database:
 
 $ CREATE DATABASE manager_db;
 
-Создать пользователя:
+Create a user:
 
-$ CREATE USER manager_web WITH LOGIN PASSWORD '1111';
+$ CREATE manager_web USER WITH LOGIN PASSWORD '1111';
 
-Добавить права доступа пользователя к бд:
+Add user access rights to the database:
 
-$ GRANT ALL PRIVILEGES ON DATABASE manager_db TO manager_web;
+$ GRANT ALL PRIVILEGES FOR manager_db DATABASE TO manager_web;
 
-$ alter user manager_web superuser createdb;
+$ ALTER USER eduplatform_web superuser createdb;
