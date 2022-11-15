@@ -1,8 +1,8 @@
-from rest_framework.pagination import PageNumberPagination
 from auth_user.models import User
 from django.core import validators
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from rest_framework.pagination import PageNumberPagination
 
 
 class DateTimeMixinModel:
@@ -35,5 +35,5 @@ class NoteMixin(models.Model):
 
 class CustomPagination(PageNumberPagination):
     page_size = 5
-    page_size_query_param = 'page_size'
+    page_size_query_param = "page_size"
     max_page_size = 150

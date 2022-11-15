@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from .models import Category, ExpenseNote, IncomeNote
-from auth_user.serializers import UserSerializer
+
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -28,4 +28,3 @@ class IncomeSerializer(serializers.ModelSerializer):
 #     all_expenses = serializers.FloatField()
 #     incomes = serializers.FloatField()
 #     all_incomes = serializers.FloatField()
-

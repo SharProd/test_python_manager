@@ -1,8 +1,8 @@
 from django.contrib.auth.models import AnonymousUser
 from django.db.models import Sum
-from rest_framework import response, permissions, viewsets, views
+from rest_framework import permissions, response, views, viewsets
+
 from manager.mixins import CustomPagination
-from auth_user.models import User
 
 from .models import Category, ExpenseNote, IncomeNote
 from .serializers import CategorySerializer, ExpenseSerializer, IncomeSerializer
@@ -71,9 +71,9 @@ class ExpenseModelViewSet(viewsets.ModelViewSet):
 
 
 class UserProfileApiView(views.APIView):
-    def get(self,request):
+    def get(self, request):
         user = self.request.user
         data = dict()
-        data['expenses'] = ExpenseNote.objects.filter(user_id=user).aggregate(Sum('money'))
-        data['incomes'] = IncomeNote.objects.filter(user_id=user).aggregate(Sum('money'))
-        return  response.Response(data)
+        data["expenses"] = ExpenseNote.objects.filter(user_id=user).aggregate(Sum("money"))
+        data["incomes"] = IncomeNote.objects.filter(user_id=user).aggregate(Sum("money"))
+        return response.Response(data)
