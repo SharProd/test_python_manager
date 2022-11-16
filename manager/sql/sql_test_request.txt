@@ -4,3 +4,10 @@ SELECT notebooks_brand.id, notebooks_brand.title,COUNT(notebooks_notebook.id)
 FROM notebooks_brand JOIN notebooks_notebook
 ON  notebooks_notebook.brand_id = notebooks_brand.id
 GROUP BY notebooks_brand.title,notebooks_brand.id;
+
+2
+
+SELECT COUNT(title) as count_notebooks,ROUND(width) as r_width,ROUND(depth) as r_depth,ROUND(height) as r_height
+FROM notebooks_notebook
+GROUP BY r_width,r_depth,r_height
+ORDER BY count_notebooks;
