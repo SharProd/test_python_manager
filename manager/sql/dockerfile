@@ -1,0 +1,4 @@
+FROM postgres
+WORKDIR /code
+COPY . /code/
+EXPOSE 8080

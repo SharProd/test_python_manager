@@ -1,0 +1,6 @@
+1
+
+SELECT notebooks_brand.id, notebooks_brand.title,COUNT(notebooks_notebook.id)
+FROM notebooks_brand JOIN notebooks_notebook
+ON  notebooks_notebook.brand_id = notebooks_brand.id
+GROUP BY notebooks_brand.title,notebooks_brand.id;
